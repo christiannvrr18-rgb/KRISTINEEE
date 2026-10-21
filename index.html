@@ -1,137 +1,620 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A Little Gift for Kristine</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>a little surprise for kristine ♡</title>
+
 <style>
-:root{--pink:#f5b9d0;--rose:#d978a4;--lav:#d8c9ff;--cream:#fff8f4;--ink:#59465d;--mint:#d7f0e6}
-*{box-sizing:border-box} body{margin:0;background:linear-gradient(135deg,#fff6f7,#f3efff 55%,#f1fbf7);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
-button{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:12px 22px;transition:transform .25s,box-shadow .25s,opacity .25s}
-button:focus-visible{outline:3px solid #a879c5;outline-offset:3px}
-.primary{background:linear-gradient(135deg,#ed8eb7,#b9a1f8);color:white;box-shadow:0 8px 22px #d7a4cc66;font-weight:800}
-.secondary{background:#fff;color:#8b6a91;border:1px solid #eed8e8}
-button:hover{transform:translateY(-2px)}
-#app{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 16px;position:relative}
-.card{width:min(850px,100%);background:#ffffffc9;border:1px solid #fff;box-shadow:0 22px 70px #a98ab52b;border-radius:30px;padding:clamp(22px,5vw,48px);backdrop-filter:blur(12px);position:relative;z-index:1}
-.screen{animation:appear .55s ease both}.hidden{display:none!important}
-h1,h2{font-family:Georgia,serif;font-weight:500;line-height:1.1;margin:8px 0 16px}h1{font-size:clamp(2.3rem,7vw,4.6rem)}h2{font-size:clamp(1.8rem,5vw,3rem)}
-p{line-height:1.7;font-size:1.03rem}.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:#b77a9c;font-weight:800}
-.center{text-align:center}.actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:26px;min-height:58px;position:relative}
-#noBtn{background:#fff;color:#9b819f;border:1px solid #ead9ec;position:relative}
-#yesBtn{transform-origin:center;z-index:2}
-.floater{position:fixed;pointer-events:none;opacity:.7;animation:float 7s ease-in-out infinite;z-index:0;font-size:24px}
-.heart{position:fixed;bottom:-30px;z-index:0;pointer-events:none;animation:rise linear forwards;opacity:.65}
-@keyframes appear{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
-@keyframes float{50%{transform:translateY(-18px) rotate(9deg)}}
-@keyframes rise{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
-@keyframes pop{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
-.flower{font-size:clamp(5rem,18vw,10rem);filter:drop-shadow(0 12px 10px #d99bb955);animation:bob 3s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-9px) rotate(2deg)}}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;margin-top:24px}
-.gift{min-height:150px;background:linear-gradient(145deg,#fff,#fff0f7);border:1px solid #f3d8e6;border-radius:22px;padding:18px;box-shadow:0 8px 22px #d7a4cc1c;color:var(--ink)}
-.gift .emoji{font-size:2.5rem;display:block;margin-bottom:10px}.gift strong{display:block}.gift small{display:block;margin-top:5px;color:#9d7b9c}
-.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:22px}
-.polaroid{background:#fff;padding:10px 10px 20px;box-shadow:0 8px 24px #9c7eaa22;transform:rotate(var(--rot));border-radius:5px;cursor:pointer}
-.photo-placeholder{aspect-ratio:4/5;background:linear-gradient(145deg,#f7d5e4,#dcd3ff,#d8f0e6);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border-radius:3px;overflow:hidden}
-.photo-placeholder img{width:100%;height:100%;object-fit:cover}.polaroid p{font-family:Georgia,serif;text-align:center;margin:12px 0 0;font-size:.95rem}
-.letter{white-space:pre-line;background:#fffaf8;border:1px solid #f3e3e6;padding:clamp(18px,4vw,32px);border-radius:18px;line-height:1.9;font-family:Georgia,serif;font-size:1.06rem}
-.track{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #f1dfed;padding:15px;border-radius:18px;margin:10px 0}.vinyl{width:52px;height:52px;border-radius:50%;background:repeating-radial-gradient(circle,#8f6aa8 0 3px,#5d466e 4px 7px);display:grid;place-items:center;color:#fff}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:28px;flex-wrap:wrap}.nav .right{margin-left:auto}
-.modal-backdrop{position:fixed;inset:0;background:#47354d55;display:grid;place-items:center;padding:20px;z-index:10;animation:appear .2s}.modal{width:min(440px,100%);background:#fff9fc;border-radius:25px;padding:28px;box-shadow:0 20px 70px #4d315b55;text-align:center;animation:pop .25s}
-input,textarea{width:100%;border:1px solid #ead8e8;border-radius:12px;padding:11px;background:white;color:var(--ink);font:inherit}label{display:block;font-weight:700;margin:14px 0 6px}
-footer{text-align:center;font-size:.8rem;color:#ad91ad;margin-top:24px}
-@media(max-width:520px){.card{border-radius:23px}.nav{gap:8px}.nav button{padding:11px 16px}.gift{min-height:125px}}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+  background: #fff5f8;
+  color: #745365;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  padding: 45px 20px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.active {
+  display: flex;
+  animation: appear .6s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2 {
+  color: #c16e91;
+}
+
+h1 {
+  font-size: clamp(2rem, 7vw, 3.2rem);
+}
+
+p {
+  line-height: 1.8;
+  max-width: 620px;
+}
+
+button {
+  border: none;
+  padding: 13px 23px;
+  margin: 7px;
+  border-radius: 25px;
+  background: #f1b9ce;
+  color: #70455b;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: .25s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #eaa3bf;
+}
+
+.back {
+  background: #fff;
+  border: 1px solid #edc4d4;
+}
+
+.card {
+  background: rgba(255,255,255,.85);
+  border: 1px solid #f4d4e0;
+  border-radius: 25px;
+  padding: 25px;
+  margin: 12px;
+  max-width: 650px;
+  width: 100%;
+  box-shadow: 0 8px 25px #e8bfd033;
+}
+
+.flower {
+  width: min(320px, 90%);
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px #d9a2b866;
+}
+
+.grid {
+  width: min(850px, 100%);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  gap: 14px;
+  margin: 20px auto;
+}
+
+.gift {
+  min-height: 135px;
+  background: #fff;
+  border: 1px solid #f0c9d9;
+  border-radius: 22px;
+  font-size: 2.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.gift:hover {
+  transform: translateY(-5px) rotate(-2deg);
+}
+
+.gift small {
+  font-size: .8rem;
+  margin-top: 8px;
+  color: #a97891;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 18px;
+  background: #f7dce7;
+}
+
+.caption {
+  font-size: .85rem;
+}
+
+input, textarea {
+  width: 100%;
+  max-width: 550px;
+  padding: 13px;
+  border-radius: 12px;
+  border: 1px solid #e9bfd0;
+  font: inherit;
+  color: #745365;
+  background: white;
+  margin: 8px;
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+#letterPreview {
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp 7s linear forwards;
+  z-index: 0;
+  opacity: .7;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.cake {
+  font-size: 100px;
+  animation: bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+  to { transform: translateY(-10px); }
+}
+
+.cat-grid img {
+  border: 3px solid white;
+}
+
+.footer {
+  font-size: .8rem;
+  opacity: .7;
+  margin-top: 20px;
+}
+
+#noBtn {
+  position: relative;
+}
+
+@media (max-width: 500px) {
+  section { padding: 30px 14px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 </style>
 </head>
+
 <body>
-<div class="floater" style="top:7%;left:7%">♡</div><div class="floater" style="top:18%;right:9%;animation-delay:-2s">✿</div><div class="floater" style="bottom:10%;left:12%;animation-delay:-4s">♡</div>
-<div id="app"><main class="card">
-<section class="screen center" id="welcome">
-<div class="eyebrow">a tiny surprise, just for you</div><div class="flower" aria-hidden="true">🎁</div>
-<h1>For Kristine, with love.</h1><p>I made you a little corner of the internet, filled with tiny things that reminded me of you.</p>
-<div class="actions"><button class="primary" onclick="go('question')">Open your surprise</button></div>
+
+<!-- welcome -->
+<section id="welcome" class="active">
+  <div class="card">
+    <p>♡ a little something for you ♡</p>
+    <h1>hi, kristine!</h1>
+    <p>
+      may maliit akong surprise para sa'yo.
+      nothing too grand, just a few things i put together
+      hoping na mapangiti ka.
+    </p>
+    <p>ready ka na ba?</p>
+    <button onclick="go('flowers')">open your surprise ♡</button>
+  </div>
 </section>
-<section class="screen center hidden" id="question">
-<div class="eyebrow">before we begin</div><div class="flower" aria-hidden="true">💌</div>
-<h2>Kristine, would you like a gift?</h2><p>Be honest… but choose wisely.</p>
-<div class="actions" id="choiceArea"><button class="primary" id="yesBtn" onclick="go('flowers')">Yes, please!</button><button id="noBtn" onclick="nope()">No, thank you</button></div>
-<p id="questionHint" aria-live="polite"></p><div class="nav"><button class="secondary" onclick="back()">← Back</button></div>
+
+<!-- bouquet -->
+<section id="flowers">
+  <div class="card">
+    <h1>flowers for you</h1>
+    <p>
+      kung pwede lang, i'd give you these flowers in person.
+      for now, here's a little bouquet for the birthday girl.
+    </p>
+
+    <img class="flower"
+         src="assets/bouquet.jpg"
+         alt="a bouquet of flowers">
+
+    <p>
+      sana may mga bagay sa life mo na patuloy na namumukadkad,
+      kahit sa mga araw na hindi madali.
+    </p>
+
+    <button onclick="go('question')">may isa pa akong surprise</button>
+    <button class="back" onclick="go('welcome')">back</button>
+  </div>
 </section>
-<section class="screen center hidden" id="flowers">
-<div class="eyebrow">picked with care</div><div class="flower">💐</div><h2>A bouquet for you</h2>
-<p>Lilies for their quiet beauty, carnations for their warmth, and roses for a little romance. I hope these flowers bring you a smile, even from a screen.</p>
-<div class="actions"><button class="primary" onclick="go('gifts')">Find your little gifts</button></div><div class="nav"><button class="secondary" onclick="back()">← Back</button></div>
+
+<!-- yes/no -->
+<section id="question">
+  <div class="card">
+    <h1>one little question...</h1>
+    <p>gusto mo bang buksan yung mga gifts mo? hehe</p>
+
+    <div>
+      <button id="yesBtn" onclick="go('gifts')">yes, please!</button>
+      <button id="noBtn" onclick="noChoice()">no muna</button>
+    </div>
+
+    <p id="questionNote"></p>
+    <button class="back" onclick="go('flowers')">back</button>
+  </div>
 </section>
-<section class="screen hidden" id="gifts">
-<div class="eyebrow">little things that remind me of you</div><h2>Little gifts for Kristine</h2><p>Tap each box. I put a little note inside every one.</p>
-<div class="grid" id="giftGrid"></div>
-<div class="nav"><button class="secondary" onclick="back()">← Back</button><button class="primary right" onclick="go('collage')">Next: our memories →</button></div>
+
+<!-- gifts -->
+<section id="gifts">
+  <h1>little gifts for you ♡</h1>
+  <p>
+    may kanya-kanyang laman ang bawat present.
+    click mo lang para malaman mo kung ano.
+  </p>
+
+  <div class="grid" id="giftGrid"></div>
+
+  <button onclick="go('memories')">next: little memories</button>
+  <button class="back" onclick="go('question')">back</button>
 </section>
-<section class="screen hidden" id="collage">
-<div class="eyebrow">little moments, kept close</div><h2>A tiny memory wall</h2><p>Tap a photo card to add your own image, or use the editor to set photo URLs.</p>
-<div class="photo-grid" id="photoGrid"></div>
-<div class="nav"><button class="secondary" onclick="back()">← Back</button><button class="primary right" onclick="go('letter')">Read your letter →</button></div>
+
+<!-- memory wall -->
+<section id="memories">
+  <h1>little memory wall</h1>
+  <p>
+    some little things worth keeping.
+    bawat picture may sariling story, kahit simple lang.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <img class="photo" src="assets/memory1.jpg" alt="memory one">
+      <p class="caption">a little piece of your story ♡</p>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="assets/memory2.jpg" alt="memory two">
+      <p class="caption">something worth remembering</p>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="assets/memory3.jpg" alt="memory three">
+      <p class="caption">just a little moment</p>
+    </div>
+  </div>
+
+  <button onclick="go('cats')">open the cat memes</button>
+  <button class="back" onclick="go('gifts')">back</button>
 </section>
-<section class="screen hidden" id="letter">
-<div class="eyebrow">a few words from me</div><h2>For you, always</h2><div class="letter" id="letterText"></div>
-<div class="nav"><button class="secondary" onclick="back()">← Back</button><button class="primary right" onclick="go('playlist')">One last thing →</button></div>
+
+<!-- cat memes -->
+<section id="cats">
+  <div class="card">
+    <h1>your daily dose of pusa</h1>
+    <p>
+      syempre, hindi pwedeng walang cat memes.
+      sana may mapatawa sa'yo dito kahit isa.
+    </p>
+
+    <div class="grid cat-grid">
+      <img class="photo" src="assets/cat1.jpg" alt="cat meme one">
+      <img class="photo" src="assets/cat2.jpg" alt="cat meme two">
+      <img class="photo" src="assets/cat3.jpg" alt="cat meme three">
+      <img class="photo" src="assets/cat4.jpg" alt="cat meme four">
+      <img class="photo" src="assets/cat5.jpg" alt="cat meme five">
+    </div>
+
+    <p>
+      sana kahit saglit, napangiti kita.
+      deserve mo rin ng little happy moments.
+    </p>
+  </div>
+
+  <button onclick="go('playlist')">next: a playlist for you</button>
+  <button class="back" onclick="go('memories')">back</button>
 </section>
-<section class="screen center hidden" id="playlist">
-<div class="eyebrow">a little soundtrack for you</div><div class="flower">♫</div><h2>Press play, think of me</h2><p>I picked a playlist for you. Open it below and let the songs do a little of the talking.</p>
-<div class="track"><div class="vinyl">♪</div><div style="text-align:left;flex:1"><strong>Kristine's playlist</strong><br><small>your songs, your mood</small></div><a class="primary" style="text-decoration:none;padding:12px 16px;display:inline-block" href="https://open.spotify.com/playlist/38QjEh8VQ8haoNhN1h9OaJ?si=LQ-YzZVGT3eaEqClOVv08A&utm_source=copy-link&pi=InaHfjPyRkyLq" target="_blank" rel="noopener">Open Spotify ↗</a></div>
-<p>Spotify opens in a new tab or in the Spotify app.</p><div class="actions"><button class="secondary" onclick="back()">← Back</button><button class="primary" onclick="go('final')">One last thing →</button></div>
+
+<!-- playlist -->
+<section id="playlist">
+  <div class="card">
+    <h1>a little playlist for you</h1>
+    <p>
+      may mga songs na mas masarap pakinggan kapag
+      may taong naiisip. so here's a playlist for you.
+    </p>
+
+    <iframe
+      style="border-radius:16px"
+      src="https://open.spotify.com/embed/playlist/38QjEh8VQ8haoNhN1h9OaJ?utm_source=generator&theme=0"
+      width="100%"
+      height="380"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="eager">
+    </iframe>
+
+    <p class="caption">
+      note: i'll try to let the music start right away,
+      pero browsers sometimes block autoplay.
+      if it doesn't play, tap play lang.
+    </p>
+  </div>
+
+  <button onclick="go('letter')">one last thing</button>
+  <button class="back" onclick="go('cats')">back</button>
 </section>
-<section class="screen center hidden" id="final">
-<div class="eyebrow">the end… for now</div><div class="flower">💗</div><h2>That's all, Kristine.</h2><p>I hope this little surprise made you smile. You can always go back and open everything again.</p>
-<div class="actions"><button class="secondary" onclick="back()">← Back</button><button class="primary" onclick="go('welcome')">Start again</button></div>
+
+<!-- letter -->
+<section id="letter">
+  <div class="card">
+    <h1>a few words from me</h1>
+
+    <p>
+      this part is yours to personalize.
+      you can write your message here whenever you're ready.
+    </p>
+
+    <textarea id="letterInput"
+      placeholder="type your message for kristine here..."></textarea>
+
+    <button onclick="previewLetter()">preview my message</button>
+
+    <div id="letterPreview"></div>
+
+    <p class="caption">
+      this preview stays in this browser tab.
+      to include your final message on the published website,
+      paste it into the code before uploading to github.
+    </p>
+  </div>
+
+  <button onclick="go('birthday')">open your final surprise ♡</button>
+  <button class="back" onclick="go('playlist')">back</button>
 </section>
-<footer>made with a little extra love</footer>
-</main></div>
-<div id="modalRoot"></div>
+
+<!-- birthday ending -->
+<section id="birthday">
+  <div class="card">
+    <p>♡ made with care, just for you ♡</p>
+    <h1>happy birthday, kristine!</h1>
+
+    <div class="cake">🎂</div>
+
+    <p>
+      happy birthday ulit, kristine.
+      i hope this year brings you more reasons to smile,
+      more peaceful days, and little moments that make life feel lighter.
+    </p>
+
+    <p>
+      hindi man perfect lahat ng days mo,
+      i hope you remember na you deserve good things,
+      genuine happiness, and people who care about you.
+    </p>
+
+    <button onclick="playBirthday()">play happy birthday song ♫</button>
+    <p id="songStatus" class="caption"></p>
+
+    <h2>bonus: more pusa for you</h2>
+
+    <div class="grid cat-grid">
+      <img class="photo" src="assets/cat1.jpg" alt="birthday cat meme one">
+      <img class="photo" src="assets/cat2.jpg" alt="birthday cat meme two">
+      <img class="photo" src="assets/cat3.jpg" alt="birthday cat meme three">
+    </div>
+
+    <p>
+      enjoy your day, birthday girl.
+      sana marami kang makuhang reasons to smile today and always. ♡
+    </p>
+
+    <button onclick="go('welcome')">back to the beginning</button>
+  </div>
+</section>
+
+<!-- gift popup -->
+<section id="giftPopup">
+  <div class="card">
+    <h1 id="giftTitle">a little gift ♡</h1>
+    <p id="giftDescription"></p>
+    <button onclick="closeGift()">back to the presents</button>
+  </div>
+</section>
+
 <script>
-const config = {
- gifts:[
- {emoji:"🍵",title:"Matcha",hint:"a little green comfort",message:"A matcha moment for you. I hope you get to enjoy your favourite drink slowly, with no rush and no worries."},
- {emoji:"🍕",title:"Pizza",hint:"the comfort-food classic",message:"Pizza date? I feel like pizza makes almost any day better. Consider this your virtual slice."},
- {emoji:"🎬",title:"Normal People",hint:"a story to get lost in",message:"A little Normal People moment. Some stories stay with us because they make us feel understood."},
- {emoji:"🦔",title:"Rambutan",hint:"sweet and a little unusual",message:"A rambutan for you: sweet, a little quirky, and worth the effort to get to the good part."},
- {emoji:"🥭",title:"Mango",hint:"sunshine in fruit form",message:"A mango kind of day: sweet, bright, and hopefully full of little things that make you happy."},
- {emoji:"🥬",title:"Ginisang ampalaya",hint:"your homey favourite",message:"A little appreciation for ginisang ampalaya. Comfort food can be special in its own quiet way."},
- {emoji:"🍈",title:"Melon",hint:"fresh and refreshing",message:"A melon treat for you. Here's to small, refreshing breaks in the middle of a busy day."},
- {emoji:"🍫",title:"Maltesers",hint:"a little chocolate happiness",message:"A tiny handful of Maltesers, because you deserve a sweet treat just because."},
- {emoji:"🍦",title:"Llaollao pistachio yogurt ice cream",hint:"frozen happiness",message:"Llaollao with pistachio: your kind of little treat. I hope I get to share one with you someday."},
- {emoji:"🥧",title:"Pecan",hint:"nutty little favourite",message:"A pecan-inspired treat for you. A small reminder that I pay attention to the things you like."},
- {emoji:"🍪",title:"Loacker Quadratini",hint:"crispy little squares",message:"Loacker Quadratini! Tiny crispy layers, many little bites of happiness—kind of like collecting good moments."}
- ],
- photos:[{caption:"a moment worth keeping",url:""},{caption:"one of my favourites",url:""},{caption:"little things, big feelings",url:""}],
- letter:"Hi, Kristine.\\n\\nI wanted to make you something small but thoughtful—a little place filled with things you like and a few words from me. It may just be a website, but I hope you can feel the care behind it.\\n\\nI like learning the little things that make you happy, even the simple favourites people might overlook. You deserve to be cared for in ways that feel gentle and genuine, not only on special occasions but on ordinary days too.\\n\\nI hope this made you smile, even for a moment. Please take care of yourself, give yourself room to rest, and remember that you deserve good things.\\n\\nWith warmth,\\nSomeone who wanted to make you smile",
- songTitle:"Kristine's playlist", songArtist:"your songs, your mood", audioUrl:""
-};
-let historyStack=["welcome"], noCount=0, musicPlaying=false;
-const $=id=>document.getElementById(id);
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));$(id).classList.remove('hidden');historyStack.push(id);window.scrollTo({top:0,behavior:'smooth'});sprinkle();}
-function go(id){if(id==="welcome"){historyStack=["welcome"];showOnly("welcome");return}showOnly(id);historyStack.push(id);window.scrollTo({top:0,behavior:'smooth'});sprinkle();}
-function showOnly(id){document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));$(id).classList.remove('hidden')}
-function back(){if(historyStack.length>1)historyStack.pop();let prev=historyStack[historyStack.length-1]||"welcome";showOnly(prev);window.scrollTo({top:0,behavior:'smooth'})}
-function nope(){
- noCount++;const yes=$("yesBtn"), no=$("noBtn"), area=$("choiceArea");
- const scale=Math.min(1+noCount*.25,5.2);yes.style.transform=`scale(${scale})`;
- const maxX=Math.max(30,Math.min(150,area.clientWidth*.32));const maxY=55;
- no.style.transform=`translate(${Math.round((Math.random()*2-1)*maxX)}px,${Math.round((Math.random()*2-1)*maxY)}px)`;
- $("questionHint").textContent="";
- const messages=["Are you sure? There's a tiny surprise waiting ♡","Really sure? The yes button looks excited.","One more thought? I picked this just for you.","The yes button is getting pretty hard to ignore…","Okay, okay… the gift is practically saying hello now!"];
- modal(messages[Math.min(noCount-1,messages.length-1)],"Just checking…","I'll think again","Okay, yes!",()=>{});
- if(noCount>=5){no.style.opacity="0.12";no.style.pointerEvents="none";$("questionHint").textContent="I think the yes button has won this round ♡";}
+const gifts = [
+  {
+    name: "matcha",
+    message: "a little matcha treat for you. sana masarap at relaxing ang next matcha day mo."
+  },
+  {
+    name: "pizza",
+    message: "pizza date idea! kasi minsan, good food can make an ordinary day better."
+  },
+  {
+    name: "normal people",
+    message: "a little reminder of one of your favorites. maybe a cozy rewatch day?"
+  },
+  {
+    name: "rambutan",
+    message: "rambutan for you! simple lang, pero kasama sa listahan ng mga bagay na naaalala ko about you."
+  },
+  {
+    name: "mango",
+    message: "sweet mango for a sweet day. sana may something good happen to you today."
+  },
+  {
+    name: "ginisang ampalaya",
+    message: "yes, even ginisang ampalaya gets a spot here. your food favorites deserve representation too."
+  },
+  {
+    name: "melon",
+    message: "a little melon treat. sana you get to enjoy all your favorite things, even the simple ones."
+  },
+  {
+    name: "maltesers",
+    message: "something sweet for you, kasi why not make your birthday a little sweeter?"
+  },
+  {
+    name: "llaollao pistachio",
+    message: "a little pistachio yogurt ice cream moment. imagine getting this after a long day."
+  },
+  {
+    name: "pecan",
+    message: "pecan made the list too. small details matter, and so do the things you like."
+  },
+  {
+    name: "loacker quadratini",
+    message: "a little crunchy snack for your next chill moment. enjoy every bite!"
+  },
+  {
+    name: "takoyaki",
+    message: "takoyaki for the birthday girl! sana someday makapag-enjoy ka ng mainit na takoyaki whenever you crave it."
+  },
+  {
+    name: "potato corner fries",
+    message: "potato corner!! the kind of fries that make snack time extra worth it. birthday fries for you."
+  }
+];
+
+const giftGrid = document.getElementById("giftGrid");
+
+gifts.forEach((gift, index) => {
+  const button = document.createElement("button");
+  button.className = "gift";
+  button.innerHTML = "🎁<small>present " + (index + 1) + "</small>";
+  button.onclick = () => openGift(gift);
+  giftGrid.appendChild(button);
+});
+
+function go(id) {
+  document.querySelectorAll("section").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
-function modal(message,title="A little question",cancel="Close",confirm="Okay",onConfirm=()=>{}){
- const root=$("modalRoot");root.innerHTML=`<div class="modal-backdrop" role="dialog" aria-modal="true"><div class="modal"><div style="font-size:2.5rem">💗</div><h2 style="font-size:1.8rem">${title}</h2><p>${message}</p><div class="actions"><button class="secondary" id="modalCancel">${cancel}</button><button class="primary" id="modalConfirm">${confirm}</button></div></div></div>`;
- $("modalCancel").onclick=()=>root.innerHTML="";$("modalConfirm").onclick=()=>{root.innerHTML="";onConfirm()};
+
+function openGift(gift) {
+  document.getElementById("giftTitle").textContent = gift.name;
+  document.getElementById("giftDescription").textContent = gift.message;
+  go("giftPopup");
 }
-function renderGifts(){ $("giftGrid").innerHTML="";config.gifts.forEach((g,i)=>{let b=document.createElement("button");b.className="gift";b.innerHTML=`<span class="emoji">${g.emoji}</span><strong>${g.title}</strong><small>${g.hint}</small>`;b.onclick=()=>modal(g.message,g.title,"Close","Aww",()=>{});$("giftGrid").appendChild(b)})}
-function renderPhotos(){ $("photoGrid").innerHTML="";config.photos.forEach((p,i)=>{let d=document.createElement("div");d.className="polaroid";d.style.setProperty("--rot",`${[-2,2,-1][i%3]}deg`);d.innerHTML=`<div class="photo-placeholder">${p.url?`<img src="${p.url}" alt="${p.caption}">`:"♡"}</div><p>${p.caption}</p>`;d.onclick=()=>modal("To add your own picture, put its image file in the project folder and set its file path in the config. You can also replace this card with a photo URL.","Photo memory","Close","Got it");$("photoGrid").appendChild(d)})}
-function toggleMusic(){const a=$("audio");if(!config.audioUrl){modal("Add an MP3 file and set audioUrl in the config section of script.js (or this page) to play a song here.","Your soundtrack","Close","Okay");return}if(a.paused){a.play();$("playBtn").textContent="Ⅱ Pause"}else{a.pause();$("playBtn").textContent="▶ Play"}}
-function sprinkle(){for(let i=0;i<5;i++){let h=document.createElement("div");h.className="heart";h.textContent=["♡","♥","✿","♡"][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+"vw";h.style.animationDuration=(5+Math.random()*5)+"s";h.style.fontSize=(16+Math.random()*20)+"px";document.body.appendChild(h);setTimeout(()=>h.remove(),10000)}}
-function init(){renderGifts();renderPhotos();$("letterText").textContent=config.letter;$("songTitle").textContent=config.songTitle;$("songArtist").textContent=config.songArtist;$("audio").src=config.audioUrl}
-init();setInterval(()=>{if(Math.random()>.45)sprinkle()},4500);
+
+function closeGift() {
+  go("gifts");
+}
+
+let noCount = 0;
+
+function noChoice() {
+  noCount++;
+
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const note = document.getElementById("questionNote");
+
+  note.textContent = "sure ka na ba? may cute surprises pa oh.";
+
+  noBtn.style.transform =
+    "translate(" + (Math.random() * 120 - 60) + "px," +
+    (Math.random() * 70 - 35) + "px)";
+
+  yesBtn.style.transform = "scale(" + (1 + noCount * 0.16) + ")";
+
+  if (noCount >= 5) {
+    noBtn.style.opacity = "0";
+    noBtn.style.pointerEvents = "none";
+    note.textContent = "hehe, mukhang yes na lang ang choice mo ♡";
+  }
+}
+
+function previewLetter() {
+  const message = document.getElementById("letterInput").value;
+  const preview = document.getElementById("letterPreview");
+
+  preview.textContent = message || "your message will appear here ♡";
+}
+
+function playBirthday() {
+  const status = document.getElementById("songStatus");
+
+  // A short synthesized birthday tune.
+  // Browsers allow audio after this button is tapped.
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+
+  if (!AudioContext) {
+    status.textContent = "your browser doesn't support this tune.";
+    return;
+  }
+
+  const audio = new AudioContext();
+  const notes = [
+    [392, 0.35], [392, 0.35], [440, 0.7],
+    [392, 0.7], [523, 0.7], [494, 1.2],
+    [392, 0.35], [392, 0.35], [440, 0.7],
+    [392, 0.7], [587, 0.7], [523, 1.2],
+    [392, 0.35], [392, 0.35], [784, 0.7],
+    [659, 0.7], [523, 0.7], [494, 0.7], [440, 1.2],
+    [698, 0.35], [698, 0.35], [659, 0.7],
+    [523, 0.7], [587, 0.7], [523, 1.4]
+  ];
+
+  let start = audio.currentTime + 0.1;
+
+  notes.forEach(([frequency, duration]) => {
+    const oscillator = audio.createOscillator();
+    const volume = audio.createGain();
+
+    oscillator.type = "sine";
+    oscillator.frequency.value = frequency;
+
+    volume.gain.setValueAtTime(0.0001, start);
+    volume.gain.exponentialRampToValueAtTime(0.12, start + 0.03);
+    volume.gain.setTargetAtTime(0.0001, start + duration - 0.05, 0.03);
+
+    oscillator.connect(volume);
+    volume.connect(audio.destination);
+
+    oscillator.start(start);
+    oscillator.stop(start + duration);
+
+    start += duration + 0.04;
+  });
+
+  status.textContent = "happy birthday to you ♡";
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = ["♡", "♥", "✿", "୨୧"][Math.floor(Math.random() * 4)];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (14 + Math.random() * 18) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 7000);
+}
+
+setInterval(createHeart, 1200);
 </script>
-</body></html>
+
+</body>
+</html>
